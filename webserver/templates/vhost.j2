@@ -1,0 +1,7 @@
+<VirtualHost *:{{ http_port }}>
+ServerAdmin webmaster@{{ domain }}
+ServerName {{ domain }}
+ServerAlias www.{{ domain }}
+DocumentRoot /var/www/{{ domain }}
+ErrorLog /var/log/{{ domain }}.log  
+</VirtualHost>

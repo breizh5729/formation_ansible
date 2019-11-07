@@ -1,0 +1,7 @@
+---
+- name: creation file system xfs 
+  filesystem: 
+    fstype: xfs 
+    path: /dev/vg/lv
+    opts: noatime
+    

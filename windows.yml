@@ -1,0 +1,9 @@
+---
+- name: test ping for windows 
+  hosts: windows
+  become:  no
+  remote_user: Administrator
+  become_method: runas
+  tasks:
+    - name: test win_ping
+      win_ping:

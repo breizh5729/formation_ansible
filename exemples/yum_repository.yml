@@ -1,0 +1,11 @@
+---
+- name: yum repostitory 
+  yum_repository:
+    name: epel
+    gpgcheck: yes 
+    gpgkey: http://fedoraproject.....
+    baseurl: http://fedoraproject.....
+    enabled: true
+    description: new repo epel 
+    file: epel
+    state: present

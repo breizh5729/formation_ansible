@@ -1,0 +1,6 @@
+---
+- name: Create a volume group on top of /dev/sda1 with physical extent size = 32MB
+  lvg:
+    vg: vg.services
+    pvs: /dev/sda1
+    pesize: 32

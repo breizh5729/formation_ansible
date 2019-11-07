@@ -1,0 +1,65 @@
+--- 
+- name: mon premier playbook 
+  hosts: all 
+  vars: 
+    - packageweb: httpd
+    - dbpackage: mysql-server
+    - servicedb: mysqld
+    - serviceweb: httpd 
+    - siteindex: file/index.php
+    - dest_root: /var/www/html/
+    
+
+
+  tasks: 
+    - name: installation des packages 
+      yum: 
+        name: "{{ item }}"
+        state: latest 
+      loop: 
+        - "{{ packageweb }}"
+        - "{{ dbpackage }}"
+    
+    - name: start des services httpd et mysql 
+      service: 
+        name: "{{ item }}"        
+        state: restarted
+        enabled: true 
+      loop: 
+        - "{{ servicedb }}"
+        - "{{ dbpackage }}"
+        - "{{ serviceweb }}"
+
+    - name: ouverture firewall 
+      firewalld: 
+        service: http
+        immediate: true
+        premanent: yes
+        state: present 
+    - name: create user dbroot 
+      mysql_user:
+        user: root 
+        password: "{{ dbroot }}"
+        state: present 
+        
+    - name: creation index.html avec ansible facts 
+      template: 
+        src: file/index.html.j2
+        dest: "{{ dest_root }}"
+        mode: 0600
+        owner: apache 
+        group: apache 
+
+- name: vérification du serveur web via uri 
+  hosts: localhost
+  become: no 
+  tasks:
+    - name: verif
+      uri:
+        url: http://localhost
+        status_code: 200
+    register: result
+    failed_when: result.rc != 200
+
+
+  

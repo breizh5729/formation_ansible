@@ -1,0 +1,7 @@
+---
+- name: Insert/Update "Match User" configuration block in /etc/ssh/sshd_config
+  blockinfile:
+    path: /etc/ssh/sshd_config
+    block: |
+      Match User ansible-agent
+      PasswordAuthentication no

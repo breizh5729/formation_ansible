@@ -1,0 +1,2 @@
+superbe mon nouveau serveur 
+mon fqdn est {{ ansible_facs.fqdn }}

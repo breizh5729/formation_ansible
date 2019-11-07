@@ -1,0 +1,7 @@
+[linux]
+52.91.34.227
+[linux:vars]
+ansible_user = centos
+
+[windows]
+34.230.61.172

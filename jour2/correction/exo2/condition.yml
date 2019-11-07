@@ -1,0 +1,16 @@
+---
+- name: playbook pour la gestion des boucles et des conditions 
+  hosts: dev
+  tasks: 
+
+    - name: playbook pour la gestion des boucles et des conditions 
+      ignore_errors: true 
+      yum:
+        name: bidon
+        state: latest 
+    - name:  restart n'importe quel service 
+      service: 
+        name: sshd
+        state: restarted 
+
+

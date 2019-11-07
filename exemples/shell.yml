@@ -1,0 +1,5 @@
+---
+- name: test shell prends les variables d'environnent 
+  shell: " echo $USER "
+  register: result 
+  

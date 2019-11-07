@@ -1,0 +1,6 @@
+---
+- name: setting mysql 
+  hosts: all 
+  vars_files: files/rootpwd.yml
+  roles:
+    - mysql 

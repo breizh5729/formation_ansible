@@ -1,0 +1,13 @@
+---
+- name: test pour failed_when 
+  hosts: dev,int 
+  vars: 
+    - distrib: "Centos"
+    - verif: "ko"
+  tasks: 
+    - name: test pour failed when rc nn egal a 1 
+      debug: 
+        msg: "ok quand ansible distribution = centos et variable verif ok "
+      failed_when: ansible_distribution == {{ distrib }}  and verif == "ok"
+
+    

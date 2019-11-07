@@ -1,0 +1,25 @@
+---
+- name: Validate the sudoers file before saving
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%ADMIN ALL='
+    line: '%ADMIN ALL=(ALL) NOPASSWD: ALL'
+    validate: /usr/sbin/visudo -cf %s
+
+
+- name: Validate the sudoers file before saving
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%ADMIN ALL='
+    line: '%ADMIN ALL=(ALL) NOPASSWD: ALL'
+    validate: /usr/sbin/visudo -cf %s
+
+- name: modif fstab 
+  lineinfile: 
+    path: /etc/fstab
+    state: present
+    line: "/UUID=111111   /mountpoint   xfs default   1 2   "
+    validate: "mount -a"
+  register: verif mount 

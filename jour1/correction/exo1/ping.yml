@@ -1,0 +1,8 @@
+---
+- name: mon premier ping 
+  hosts: all 
+  tasks: 
+    - name: mon premier ping
+      ping: 
+
+        

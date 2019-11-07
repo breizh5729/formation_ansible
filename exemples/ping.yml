@@ -1,0 +1,7 @@
+---
+- name: test for ping 
+  hosts: all 
+  tasks:
+    - name: ping
+      ping:
+

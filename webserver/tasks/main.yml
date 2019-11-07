@@ -1,0 +1,59 @@
+---
+
+# tasks file for webserver
+- name: installation httpd et firewalld 
+  yum: 
+    name: 
+      - httpd
+      - firewalld 
+    state: latest 
+
+- name: start des services 
+  service: 
+    name: "{{ item }}" 
+    state: restarted 
+    enabled: true 
+  loop: 
+    - firewalld 
+    - httpd 
+
+- name: ouverture firewalld pour http et https 
+  firewalld: 
+    service: "{{ item }}" 
+
+    immediate: true 
+    permanent: yes 
+    state: enabled
+  loop: 
+    - http
+    - https
+
+
+- name: creation des repertoires 
+  file: 
+    state: directory
+    path: /var/www/{{ domain }}/public_html
+    owner: apache 
+    group: apache 
+    mode: 0755
+
+- name: creation du index.html 
+  template: 
+    src: templates/index.j2
+    dest: /var/www/{{ domain }}/index.html
+    owner: apache
+    group: apache
+- name: creation du virtual host 
+  template: 
+    src: templates/vhost.j2
+    dest: /etc/httpd/conf.d/vhost.conf 
+    owner: apache 
+    group: apache
+
+- name: verification du bon fonctionnement du serveur web 
+  become: no
+  local_action: 
+    module: uri 
+    url: http://{{ inventory_hostname  }}
+    return_content: yes  
+    

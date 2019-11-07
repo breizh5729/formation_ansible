@@ -1,0 +1,6 @@
+---
+- name: Create a logical volume of 512m
+  lvol:
+    vg: firefly
+    lv: test
+    size: 512

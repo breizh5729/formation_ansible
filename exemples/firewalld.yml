@@ -1,0 +1,13 @@
+---
+- name: 
+  firewalld:
+    service: http 
+    state: present
+    immediate: true
+    permanent: true 
+- name: 
+  firewaal:
+    state: present 
+    port: 444/tcp 
+    immediate: yes
+    permanent: true

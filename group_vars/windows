@@ -1,0 +1,6 @@
+---
+ansible_user: Administrator
+ansible_password: EPN(EBq!Jp;Lt%oFChelPFBI69Y(xkje 
+ansible_ssh_port: 5986
+ansible_connection: winrm
+ansible_winrm_server_cert_validation: ignore

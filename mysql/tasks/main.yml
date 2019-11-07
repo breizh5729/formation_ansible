@@ -1,0 +1,18 @@
+---
+# tasks file for mysql
+- name: installation de mysql 
+  yum:
+    name:
+      - MySQL-python   
+      - mariadb-server
+    state: latest 
+- name: start du service mysqld
+  service:
+    name: mariadb
+    enabled: true 
+    state: restarted
+- name: Set root user password
+  mysql_user:
+    name: root
+    password: "{{ mysql_root_password}}"
+    check_implicit_admin: true 

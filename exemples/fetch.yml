@@ -1,0 +1,8 @@
+--- 
+- name: copy de fichier distant ou remote to remote
+  fetch:
+    src: file/conf.new
+    dest: /etc/
+    uid: root
+    gid: root
+    mode: 0640

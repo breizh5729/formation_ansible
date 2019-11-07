@@ -1,0 +1,13 @@
+gathering: smart
+deprecation_warnings: False
+fact_caching: jsonfile
+fact_caching_connection: /tmp/facts
+fact_caching_timeout: 7200
+
+ssh_args:  -i ../.ssh/aws1.pem
+become: true 
+become_method: sudo 
+#become_user root
+remote_user: centos 
+
+

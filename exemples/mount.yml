@@ -1,0 +1,8 @@
+---
+- name: Mount up device by UUID
+  mount:
+    path: /home
+    src: UUID=b3e48f45-f933-4c8e-a700-22a159ec9077
+    fstype: xfs
+    opts: noatime
+    state: present

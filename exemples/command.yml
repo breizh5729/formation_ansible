@@ -1,0 +1,4 @@
+--- 
+- name: command line test 
+  command: "ps -eaf"
+  register: var

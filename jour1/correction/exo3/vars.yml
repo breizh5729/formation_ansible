@@ -1,0 +1,11 @@
+--- 
+newusers: 
+  - name: vincent
+    groups: continuous
+    password: continuous
+  - name: clara
+    groups: continuous
+    password: continuous
+  - name: virginie
+    groups: continuous
+    password: continuous

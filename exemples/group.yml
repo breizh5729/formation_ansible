@@ -1,0 +1,10 @@
+--- 
+- name: add d'un groupe
+  group: 
+    name: nexwdev
+    state: present
+    gid: 333
+    system: yes
+
+
+

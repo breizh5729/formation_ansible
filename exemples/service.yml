@@ -1,0 +1,11 @@
+---
+- name: gestion des services sur systemd 
+  service: 
+    name: {{ item }}
+    state: restarted
+    enabled: true 
+  loop:
+    - httpd
+    - firewalld
+    - nfsserver
+    - chronyd

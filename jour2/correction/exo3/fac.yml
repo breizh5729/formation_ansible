@@ -1,0 +1,21 @@
+---
+- name: creation d'un fichier /etc/hosts/ distant 
+  hosts: all 
+  tasks: 
+    - name: creation d'un boucle pour la creation d'un /etc/hosts distant 
+      template:
+        src: files/hosts.j2
+        dest: /etc/hosts
+        owner: root
+        group: root
+        backup: yes 
+
+    - name: cat du fichier /etc/hosts
+      command: cat /etc/hosts"
+      register: verif
+
+    - name: reccupération de la variable verif 
+      debug: 
+        var: "{{ verif }}"
+
+    
