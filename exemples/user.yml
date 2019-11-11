@@ -4,8 +4,7 @@
     state: present
     name: vincent
     uid: 3333
-    gid: 44444
-    groups: wheel
+    group: wheel
     append: yes 
     password:   "{{ 'password' | password_hash('sha512') }}"
     shell: /bin/bash 
