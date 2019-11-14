@@ -1,6 +1,7 @@
 ---
 - name: setting mysql 
   hosts: all 
-  vars_files: files/rootpwd.yml
+  vars: 
+    - mysql_root_password: toto
   roles:
     - mysql 
