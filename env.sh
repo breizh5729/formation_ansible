@@ -4,9 +4,10 @@ yum install -y nmap
 pip install ansible 
 
 echo " mise à jour du fichier /etc/hosts "
- export node1=$(nmap 10.10.4.*  | grep report | awk '{print $NF}' |sed -n '2,2p') 
+range = $(curl http://169.254.169.254/latest/meta-data/hostname | rev | cut -d"." -f3 | rev)
+ export node1=$(nmap 10.10.$range.*  | grep report | awk '{print $NF}' |sed -n '2,2p') 
 
- export node2=$(nmap 10.10.4.*  | grep report | awk '{print $NF}' |sed -n '3,3p') 
+ export node2=$(nmap 10.10.$range.*  | grep report | awk '{print $NF}' |sed -n '3,3p') 
 
 sudo echo $node1 node1 >> /etc/hosts 
 sudo echo $node2 node2 >> /etc/hosts 
