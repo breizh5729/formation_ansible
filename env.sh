@@ -16,8 +16,8 @@ aws s3 cp s3://formationansiblecontinuous/aws1.pem /home/ec2-user/.ssh/id_rsa
 chmod 600 /home/ec2-user/.ssh/id_rsa
 chown ec2-user:ec2-user /home/ec2-user/.ssh/id_rsa
 echo " vérification de la connexion ssh en cours "
-ssh ec2-user@node1 " hostname   "
-ssh ec2-user@node2 " hostname "
+ssh centos@node1 " hostname   "
+ssh centos@node2 " hostname "
 
 echo " votre environement est prêt "
 echo " tenter d'aller sur les serveurs node1 et node2 "
