@@ -12,9 +12,9 @@ sudo echo $node1 node1 >> /etc/hosts
 sudo echo $node2 node2 >> /etc/hosts
 
 echo " réccupération clès ssh "
-aws s3 cp s3://formationansiblecontinuous/aws1.pem ../.ssh/id_rsa
-chmod 600 ../.ssh/id_rsa
-chown ec2-user:ec2-user ../.ssh/id_rsa
+aws s3 cp s3://formationansiblecontinuous/aws1.pem /home/ec2-user/.ssh/id_rsa
+chmod 600 /home/ec2-user/.ssh/id_rsa
+chown ec2-user:ec2-user /home/ec2-user/.ssh/id_rsa
 echo " vérification de la connexion ssh en cours "
 ssh ec2-user@node1 " hostname   "
 ssh ec2-user@node2 " hostname "
