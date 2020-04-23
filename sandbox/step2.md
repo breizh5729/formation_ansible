@@ -1,5 +1,3 @@
-Modifiez le  pod vincent en ajoutant un check liveness 
-path: / 
-port: 80 
-
-initialDelay: 20 
+exposer le pod vincent sur le 
+nom du service = my-service: 
+port=80 target-port=80 
