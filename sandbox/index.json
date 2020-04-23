@@ -12,7 +12,7 @@
       },
       {
         "title": "Step 2",
-        "verify": "step1-verify.sh",
+        "verify": "step2-verify.sh",
         "text": "step2.md"
       },
       {
